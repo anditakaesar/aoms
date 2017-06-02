@@ -11,3 +11,12 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.post_title
+
+
+class Navigation(models.Model):
+    nav_title = models.CharField(max_length=50)
+    nav_desc = models.CharField(max_length=200)
+    nav_location = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.nav_title + " : " + self.nav_desc
