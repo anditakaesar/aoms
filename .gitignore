@@ -169,4 +169,7 @@ ENV/
 /site
 
 # End of https://www.gitignore.io/api/django,python,pycharm
+
+# ignored untracked wtf dollar sign mean
 /$S
+!/$S
