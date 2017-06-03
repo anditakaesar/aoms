@@ -6,11 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <h2>Blog List</h2>
-  <ul>
+<div class="uk-container" style="padding-top: 10px;">
+  <div>
+    {% for post in post_lists %}
+      <a href="#" style="text-decoration: none" title="click for read more">
+        <div class="uk-card uk-card-default uk-card-small uk-card-hover uk-width-1-1\@m">
+          <div class="uk-card-body">
+            <h3 class="uk-card-title">{{ post.post_title|truncatechars:10 }}</h3>
+            <div class="uk-card-badge uk-label">{{ post.created_date|date }}</div>
+            {{ post.post_body|truncatechars:50 }}
+          </div>
+        </div>
+      </a>
+      <br>
+    {% endfor %}
+  </div>
 
-  </ul>
+  <div style="text-align: center">
+    <div style="margin: auto">
+      {% if post_lists.has_previous %}
+        <a href="?page={{ post_lists.previous_page_number }}"><button class="uk-button uk-button-primary">PREV</button></a>
+      {% endif %}
+      <button class="uk-button uk-disabled">{{ post_lists.number }} / {{ post_lists.paginator.num_pages }}</button>
+      {% if post_lists.has_next %}
+        <a href="?page={{ post_lists.next_page_number }}"><button class="uk-button uk-button-primary">NEXT</button></a>
+      {% endif %}
+    </div>
+  </div>
 </div>
 {% endblock %}
 

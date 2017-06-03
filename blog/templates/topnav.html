@@ -2,7 +2,7 @@
   <div class="uk-navbar-left">
     <ul class="uk-navbar-nav">
       {% for navig in nav_lists %}
-        <li title="{{ navig.nav_desc }}" uk-tooltip><a href="{{ navig.nav_location }}">{{ navig.nav_title }}</a></li>
+        <li title="{{ navig.nav_desc }}" uk-tooltip><a href="{{ navig.nav_reff }}" target="{{ navig.nav_target }}">{{ navig.nav_title }}</a></li>
       {% endfor %}
     </ul>
   </div>

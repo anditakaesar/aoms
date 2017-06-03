@@ -10,12 +10,12 @@
 
   <script src="{% static 'js/jquery-3.2.1.min.js' %}" type="text/javascript"></script>
   <script src="{% static 'js/uikit.js' %}" type="text/javascript"></script>
-  <script src="{% static 'js/uikit-icons.js.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/uikit-icons.js' %}" type="text/javascript"></script>
 
   <link rel="stylesheet" href="{% static 'css/uikit.css' %}" type="text/css" />
   <link rel="stylesheet" href="{% static 'css/mystles.css' %}" type="text/css" />
 </head>
-<body>
+<body class="uk-container" style="padding-bottom: 5px;">
   {% block topnav %}{% endblock %}
   {% block content %}{% endblock %}
   {% block footer %}{% endblock %}
