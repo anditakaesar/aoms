@@ -121,4 +121,5 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-BASE_URL = 'http://192.168.1.10:8999'
+# BASE_URL = 'http://192.168.1.10:8999'
+BASE_URL = 'http://localhost:8999'

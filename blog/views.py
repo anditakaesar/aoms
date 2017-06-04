@@ -1,6 +1,9 @@
 from django.views.generic import TemplateView, ListView
 from blog.models import BlogPost, Navigation
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login
 
 
 class HomePageView(TemplateView):
