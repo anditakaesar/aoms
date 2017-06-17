@@ -9,10 +9,10 @@
 <div class="uk-container" style="padding-top: 10px;">
   <div>
     {% for post in post_lists %}
-      <a href="#" style="text-decoration: none" title="click for read more">
+      <a href="/post/{{ post.id }}" style="text-decoration: none" title="click for read more">
         <div class="uk-card uk-card-default uk-card-small uk-card-hover uk-width-1-1\@m">
           <div class="uk-card-body">
-            <h3 class="uk-card-title">{{ post.post_title|truncatechars:10 }}</h3>
+            <h3 class="uk-card-title">{{ post.post_title|truncatechars:20 }}</h3>
             <div class="uk-card-badge uk-label">{{ post.created_date|date }}</div>
             {{ post.post_body|truncatechars:50 }}
           </div>

@@ -6,4 +6,5 @@ urlpatterns = [
     # url(r'^$', views.index, name='index'),
     # url(r'^$', views.PostListView.as_view(), name='post-list'),
     url(r'^$', views.HomePageView.as_view(), name='home'),
+    url(r'^post/(?P<pk>[\d+])', views.PostDetailView.as_view(), name='post-detail'),
 ]

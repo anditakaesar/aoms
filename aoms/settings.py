@@ -15,6 +15,10 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+OS_NAME = os.name
+ON_PRODUCTION = False
+if OS_NAME == 'posix':
+    ON_PRODUCTION = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -23,7 +27,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=83woahb_3p@_axa2*5suq^ve#t)$i1pf-^9%zl&!rqsctd3@='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if ON_PRODUCTION:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -69,21 +76,30 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'aoms.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aoms',
-        'USER': 'aomsuser',
-        'PASSWORD': 'SubxMxBsn7UB76RW',
-        'HOST': 'localhost',
-        'PORT': '3306',
+if ON_PRODUCTION:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'aoms',
+            'USER': 'aomsuser',
+            'PASSWORD': 'SubxMxBsn7UB76RW',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'aoms',
+            'USER': 'aomsuser',
+            'PASSWORD': 'SubxMxBsn7UB76RW',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -123,3 +139,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # BASE_URL = 'http://192.168.1.10:8999'
 BASE_URL = 'http://localhost:8999'
+if ON_PRODUCTION:
+    BASE_URL = 'http://192.168.100'
+

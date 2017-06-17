@@ -1,9 +1,6 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, DetailView
 from blog.models import BlogPost, Navigation
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
 
 
 class HomePageView(TemplateView):
@@ -26,3 +23,15 @@ class HomePageView(TemplateView):
         context['nav_lists'] = self.nav_lists
         context['post_lists'] = posts
         return context
+
+
+class PostDetailView(DetailView):
+    template_name = 'post_detail.html'
+    nav_lists = Navigation.objects.order_by('nav_priority').filter(active=1)
+    model = BlogPost
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context['nav_lists'] = self.nav_lists
+        return context
+

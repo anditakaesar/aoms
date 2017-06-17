@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Testing Title{% endblock %}
+{% block topnav %}
+  {% include "topnav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="uk-container" style="padding-top: 10px;">
+  <div>
+    <h2>{{ object.post_title }}</h2>
+    <hr>
+    {{ object.post_body }}
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
