@@ -13,7 +13,7 @@ if OS_NAME == 'posix':
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=83woahb_3p@_axa2*5suq^ve#t)$i1pf-^9%zl&!rqsctd3@='
+# SECRET_KEY = <load_own_secret>
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ON_PRODUCTION:
@@ -77,28 +77,16 @@ WSGI_APPLICATION = 'aoms.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-if ON_PRODUCTION:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'aoms',
-            'USER': 'aomsuser',
-            'PASSWORD': 'SubxMxBsn7UB76RW',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'aoms',
-            'USER': 'aomsuser',
-            'PASSWORD': 'SubxMxBsn7UB76RW',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'dbname',
+#         'USER': 'username',
+#         'PASSWORD': 'pass',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -149,3 +137,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+from aoms.local_settings import *
