@@ -173,3 +173,6 @@ ENV/
 # ignored untracked wtf dollar sign mean
 /$S
 !/$S
+
+# need to ignore migrations folder
+migrations
