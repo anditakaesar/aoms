@@ -1,2 +1,5 @@
-RELEASE NOTES
+RELEASE NOTES `aoms`
 ------------
+v0.2-unstable
+First initial release, that hide sensitive information and add very specific
+model
