@@ -15,12 +15,21 @@ class ColorSerializer(serializers.HyperlinkedModelSerializer):
 class ProductColorSerializer(serializers.HyperlinkedModelSerializer):
     product_name = serializers.ReadOnlyField(source='product.product_name')
     color_name = serializers.ReadOnlyField(source='color.color_name')
+    str_rep = serializers.SerializerMethodField()
+
+    def get_str_rep(self, obj):
+        return str(obj)
 
     class Meta:
         model = ProductColor
-        fields = ('url','product_name', 'color_name', 'product', 'color')
+        fields = ('url','product_name', 'color_name', 'product', 'color', 'str_rep')
 
 class StockSerializer(serializers.HyperlinkedModelSerializer):
+    str_rep = serializers.SerializerMethodField()
+
+    def get_str_rep(self, obj):
+        return str(obj)
+
     def create(self, validated_data):
         """
         This method check whether the stock is not present then create it
@@ -37,4 +46,4 @@ class StockSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Stock
-        fields = ('url', 'product_color', 'ammount')
+        fields = ('url', 'product_color', 'ammount', 'str_rep')
