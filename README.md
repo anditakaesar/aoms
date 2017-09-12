@@ -14,7 +14,8 @@ to aid business process of pre-order based store.
 
 ## Run
   - make a separate setting file `aoms\local_settings.py` that contains
-    `SECRET_KEY` and `DATABASES` settings
+    `SECRET_KEY` and `DATABASES` settings. You can rename the file
+    `aoms\local_settings.temp` into `aoms\local_settings.py`.
   - Make migration
     run `python manage.py makemigrations`
   - Migrate to database
