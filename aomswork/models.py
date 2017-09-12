@@ -80,3 +80,6 @@ class Stock(models.Model):
         on_delete=models.CASCADE,
     )
     ammount = models.IntegerField()
+
+    def __str__(self):
+        return str(self.product_color) + ' (' + str(self.ammount) + ')'
