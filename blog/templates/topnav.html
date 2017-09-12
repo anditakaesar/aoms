@@ -1,9 +1,0 @@
-<nav class="uk-navbar-container" uk-navbar>
-  <div class="uk-navbar-left">
-    <ul class="uk-navbar-nav">
-      {% for navig in nav_lists %}
-        <li title="{{ navig.nav_desc }}" uk-tooltip><a href="{{ navig.nav_reff }}" target="{{ navig.nav_target }}">{{ navig.nav_title }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-</nav>
