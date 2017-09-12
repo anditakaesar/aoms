@@ -1,0 +1,12 @@
+SECRET_KEY = 'this_will_be_your_secret_key'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # assuming you are using mysql
+        'NAME': 'example-dbname',
+        'USER': 'example-dbuser',
+        'PASSWORD': 'example-dbpassword',
+        'HOST': 'localhost', # Usually localhost
+        'PORT': '3306', # Usually 3306
+    }
+}
