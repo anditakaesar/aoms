@@ -1,7 +1,7 @@
 from django.db import models
 
 
-# Model Produk
+# Product Model
 class Product(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
@@ -15,6 +15,7 @@ class Product(models.Model):
     def __str__(self):
         return str(self.id) + ' ' + self.product_name + ': ' + self.product_desc
 
+# Color Model
 class Color(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
@@ -24,8 +25,9 @@ class Color(models.Model):
         ordering = ('-color_name',)
 
     def __str__(self):
-        return str(self.id) + ' ' + self.color_name        
+        return str(self.id) + ' ' + self.color_name
 
+# Product And Color Transaction
 class ProductColor(models.Model):
     product = models.ForeignKey(
         'Product',
@@ -36,15 +38,23 @@ class ProductColor(models.Model):
         on_delete=models.CASCADE,
     )
 
-# Model Order
+    def __str__(self):
+        return str(self.product.product_name) + ' - ' + str(self.color.color_name)
+
+# Model Order (Parent for OrderDetail)
 class Order(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
     orderdetails = models.ManyToManyField('OrderDetail', related_name='+')
+    order_desc = models.CharField(max_length=2000)
 
     class Meta:
         ordering  = ('-create_date',)
 
+    def __str__(self):
+        return str(self.order_desc)
+
+# Model OrderDetail
 class OrderDetail(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
@@ -60,6 +70,9 @@ class OrderDetail(models.Model):
     class Meta:
         ordering  = ('-create_date',)
 
+    def __str__(self):
+        return str(self.order.order_desc) + ' details'
+
 # Model Stock
 class Stock(models.Model):
     product_color = models.ForeignKey(
@@ -67,3 +80,6 @@ class Stock(models.Model):
         on_delete=models.CASCADE,
     )
     ammount = models.IntegerField()
+
+    def __str__(self):
+        return str(self.product_color) + ' (' + str(self.ammount) + ')'
