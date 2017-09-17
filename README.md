@@ -24,5 +24,9 @@ to aid business process of pre-order based store.
   - For Testing, run in local server
     run `python manage.py runserver 8999` or whatever you like (port)
 
+## Authors
+Multiple Author:
+  - Andita
+
 ## License
 MIT

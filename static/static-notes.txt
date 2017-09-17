@@ -1,0 +1,1 @@
+Make a meaningful folder structure for static files.
