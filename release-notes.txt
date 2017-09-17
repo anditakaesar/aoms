@@ -1,6 +1,9 @@
 RELEASE NOTES `aoms`
 ------------
 
+v0.3.1-unstable
+Enhancing entity model and prepare for API access
+
 v0.3.0-unstable
 Enhancing aomswork.model and serializers
 
